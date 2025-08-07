@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="./src/images/icon.png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./src/css/theme.css">
+  <link rel="stylesheet" href="./src/css/responsive.css">
+
+  <title>Fourteam AI</title>
+</head>
+
+<body>
+
+  <header>
+    <img src="./src/images/icon.png" alt="">
+    <h1>Fourteam AI</h1>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="./index.html">Novo Chat</a></li>
+        <!-- <li><a href="/sobre">Sobre</a></li>  -->
+        <!-- fazer pagina com os githubs/linkedins dos integrantes do grupo -->
+        <li id="login"><a href="#">Login</a></li>
+        <li><button id="btn-theme" title="Dark/Light"><img src="./src/images/dianoite.png" alt="Imagem dia e noite"></button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container">
+      <article class="home-container">
+        <img src="./src/images/robo.png" alt="Imagem de um robô">
+        <h2>Olá, sou Fourteam AI, o seu novo assistente virtual!</h2>
+      </article>
+
+      <article class="chat-container disable"> <!--classe disable para desativar o chat, lembrar de remover o disable daqui e adicionar no home-container quando -->
+        <div class="chat-question">Lorem ipsum dolor sit amet?</div>
+        <div class="chat-response">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis exercitationem
+          fugiat tenetur quis sunt qui enim quae eaque vitae eum, et adipisci rerum reiciendis quidem in nemo animi
+          recusandae saepe?
+        </div>        
+        <div class="chat-question">Lorem ipsum dolor sit amet? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis non cum labore nisi explicabo quiasquam minima omnis accusantium qui impedit ipsum sit, quasi unde libero, praesentium magnam id, expedita ipsam!</div>
+        <div class="chat-response">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        </div>
+      </article>
+    </section>
+
+    <section class="form-container">
+      <form id="chat-form" class="chat-form">
+        <label for="question" class="sr-only">Digite a sua pergunta</label>
+        <textarea id="question" name="question" placeholder="Layout de teste: Digite algo e aperte perguntar para testar o layout com chat ativo." required></textarea>
+        <button type="submit">Perguntar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy 2025 - Desenvolvido por <strong><u>Fourteam</strong></u></p>
+    </span>
+  </footer>
+  <script src="./script.js"></script>
+</body>
+
+
+</html>

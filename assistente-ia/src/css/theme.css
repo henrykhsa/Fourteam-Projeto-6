@@ -1,0 +1,15 @@
+:root {
+  --color1: #AAAAAA;
+  --color2: #BBBBBB;
+  --color3: #DDDDDD;
+  --colorBG: #EEEEEE;
+  --colorText: #1F1F1F;
+}
+
+body.dark {
+  --color1: #3F3F3F;
+  --color2: #5F5F5F;
+  --color3: #AAAAAA;
+  --colorBG: #1F1F1F;
+  --colorText: #FFFFFF;
+}
