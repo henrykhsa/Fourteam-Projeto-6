@@ -97,7 +97,6 @@ nav ul li button img:hover {
 main {
   padding-top: 80px;
   padding-bottom: 200px;
-
 }
 
 .container {
@@ -140,7 +139,6 @@ main {
   overflow-y: auto;
   max-height: calc(100dvh - 260px);
 }
-
 
 .chat-question {
   font-size: 1rem;
@@ -193,11 +191,11 @@ main {
   height: 100px;
   resize: none;
   overflow-y: auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--color1);
   border-radius: 20px;
   font-size: 0.9rem;
-  color: #1F1F1F;
+  color: #1f1f1f;
   padding: 10px 20px;
 }
 
@@ -207,13 +205,36 @@ main {
   box-shadow: none;
 }
 
-
 .sr-only {
   display: none;
 }
 
+.chat-form > div {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+#apiKey {
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border: 1px solid var(--color1);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #1f1f1f;
+  width: 700px;
+  min-width: 168px;
+}
+
+#apiKey:focus {
+  outline: none;
+  border: 1px solid var(--color1);
+  box-shadow: none;
+}
+
 .chat-form button {
-  align-self: flex-end;
   padding: 10px 30px;
   background-color: var(--color2);
   color: var(--colorText);
