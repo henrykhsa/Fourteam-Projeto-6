@@ -11,6 +11,7 @@ body {
   height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 body.dark img {
@@ -140,7 +141,7 @@ main {
   max-height: calc(100dvh - 260px);
 }
 
-.chat-question {
+.question {
   font-size: 1rem;
   background-color: var(--color2);
   text-align: end;
@@ -152,7 +153,7 @@ main {
   word-break: break-word;
 }
 
-.chat-response {
+.response {
   font-size: 1rem;
   background-color: var(--color3);
   text-align: start;
