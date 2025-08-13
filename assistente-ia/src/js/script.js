@@ -1,6 +1,4 @@
-document.getElementById("chat-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
+async function enviarPergunta() {
   const apiKey = document.getElementById("apiKey").value.trim();
   const question = document.getElementById("question-box").value.trim();
   const questionDiv = document.querySelector(".question");
@@ -19,7 +17,8 @@ document.getElementById("chat-form").addEventListener("submit", async (e) => {
   chatContainer.classList.remove("disable");
 
   questionDiv.textContent = question;
-  responseDiv.textContent = "Fourteam IA está digitando...";
+  // Use innerHTML para incluir o HTML do loader
+  responseDiv.innerHTML = '<span>Fourteam IA está digitando...</span><div class="loader"></div>';
 
   try {
     const res = await fetch(
@@ -36,9 +35,33 @@ document.getElementById("chat-form").addEventListener("submit", async (e) => {
     const data = await res.json();
     const resposta = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
+    // A resposta final substitui o loader
     responseDiv.textContent = resposta || "Sem resposta da API.";
   } catch (err) {
     console.error(err);
     responseDiv.textContent = "Erro ao conectar com a API.";
+  }
+
+  // Limpa a textarea e foca nela após o envio
+  document.getElementById("question-box").value = '';
+  document.getElementById("question-box").focus();
+}
+
+// Seleciona o botão de "Perguntar" e a textarea
+const btnPerguntar = document.querySelector("button[type='submit']");
+const textarea = document.getElementById("question-box");
+
+// Event listener para o clique no botão
+btnPerguntar.addEventListener("click", (event) => {
+  event.preventDefault(); // Impede o envio do formulário, se houver
+  enviarPergunta();
+});
+
+// Event listener para a tecla na textarea
+textarea.addEventListener("keydown", (event) => {
+  // Se a tecla pressionada for 'Enter' e 'Shift' NÃO estiver pressionada
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault(); // Impede a quebra de linha
+    enviarPergunta();
   }
 });
