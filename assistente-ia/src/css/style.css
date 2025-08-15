@@ -56,18 +56,19 @@ nav ul li {
   font-size: 1.2rem;
 }
 
-#login {
+/* #login {
   background-color: var(--color2);
-  padding: 3px 20px;
+  padding: 3px;
   border-radius: 30px;
   transition: 0.3s;
 }
 
 #login:hover {
   opacity: 80%;
-}
+} */
 
-nav ul li a {
+nav ul li a i {
+  font-size: 1.2rem;
   color: var(--colorText);
   text-decoration: none;
   transition: 0.3s;
@@ -83,15 +84,15 @@ nav ul li button {
   border: none;
 }
 
-nav ul li button img {
-  vertical-align: middle;
-  height: 32px;
-  padding-bottom: 5px;
+nav ul li button i {
+
   transition: 0.3s;
+  font-size: 1.2rem;
   cursor: pointer;
+  color: var(--colorText);
 }
 
-nav ul li button img:hover {
+nav ul li button i:hover {
   opacity: 70%;
 }
 
@@ -151,6 +152,34 @@ main {
   max-width: 80%;
   width: fit-content;
   word-break: break-word;
+}
+
+.response-block {
+  display: flex;
+}
+
+.response-block button {
+  background-color: transparent;
+  border: none;
+  color: var(--colorText);
+  font-size: 1rem;
+  padding: 0.2rem;
+  cursor: pointer;
+  align-self: end;
+  transition: 0.5s;
+}
+
+.response-block button:hover {
+  opacity: 70%;
+  scale: 1.1;
+}
+
+.response-block .copied-message {
+  display: flex;
+  align-self: end;
+  font-size: 0.8rem;
+  color: var(--colorText);
+  opacity: 80%;
 }
 
 .response {
