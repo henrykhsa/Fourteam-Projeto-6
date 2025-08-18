@@ -196,7 +196,7 @@ document.getElementById("btn-delete").addEventListener("click", () => {
 
   if (setOk) {
     chatHistory.length = 0;
-    renderizarHistorico();
+    renderizarHistorico()
     textarea.value = "";
 
     const msgDelete = document.querySelector(".msg-delete");

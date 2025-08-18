@@ -207,6 +207,26 @@ main {
   height: 40px;
 }
 
+#btn-export {
+  padding: 10px;
+  background-color: transparent;
+  color: var(--colorText);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: auto;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+#btn-export:hover {
+  scale: 1.1;  
+  background-color: transparent;
+  border-radius: 20px;
+  opacity: 80%;
+}
+
+
 .msg-delete {
   font-size: 1rem;
   color: var(--colorText);
