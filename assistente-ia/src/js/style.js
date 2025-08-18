@@ -12,17 +12,17 @@ document.getElementById("btn-export").addEventListener("click", () => {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  let y = 20; // posição inicial no PDF
+  let y = 20; // Posição inicial no PDF
   const margin = 10;
   const maxWidth = 180;
-  const lineHeight = 7; // altura de cada linha de texto
-  const lineSpacing = 5; // espaçamento entre linhas
+  const lineHeight = 7; // Altura de cada linha de texto
+  const lineSpacing = 5; // Espaçamento entre as linhas
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(12);
 
   chatHistory.forEach((item) => {
-    // Adiciona uma nova pagina se a próxima seção ultrapassar o limite
+    // Adiciona uma nova página se a próxima seção ultrapassar o limite
     if (y > 270) {
       doc.addPage();
       y = 20;
@@ -42,11 +42,12 @@ document.getElementById("btn-export").addEventListener("click", () => {
       doc.text("IA:", margin, y);
       y += lineHeight;
 
-      doc.setFont("helvetica", "italic");
+      doc.setFont("helvetica", "normal");
       const iaText = doc.splitTextToSize(item.parts[0].text, maxWidth);
       doc.text(iaText, margin, y);
       y += iaText.length * lineHeight + lineSpacing;
     }
   });
+
   doc.save("conversa-fourteam.pdf");
 });
