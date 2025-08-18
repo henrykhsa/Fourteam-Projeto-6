@@ -3,35 +3,38 @@
 
 <head>
   <title>Fourteam AI</title>
-<!-- Meta Tags -->
+  <!-- Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Open Graph Meta Tags -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Fourteam AI">
-  <meta property="og:description" content="Fourteam AI é o seu assistente virtual inteligente, pronto para ajudar com suas perguntas e tarefas.">
+  <meta property="og:description"
+    content="Fourteam AI é o seu assistente virtual inteligente, pronto para ajudar com suas perguntas e tarefas.">
   <meta property="og:image" content="https://henrykhsa.github.io/Fourteam-Projeto-6/assistente-ia/src/images/icon.png">
   <meta property="og:url" content="https://henrykhsa.github.io/Fourteam-Projeto-6/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Fourteam AI">
   <meta property="og:logo" content="https://henrykhsa.github.io/Fourteam-Projeto-6/assistente-ia/src/images/p_icon.png">
-<!-- Twitter Card Meta Tags -->
+  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fourteam AI">
   <meta name="twitter:description" content="Olá, sou Fourteam AI, o seu novo assistente virtual!">
   <meta name="twitter:image" content="https://henrykhsa.github.io/Fourteam-Projeto-6/assistente-ia/src/images/icon.png">
 
-<!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" href="assistente-ia/src/images/p_icon.png" type="image/x-icon">
-<!-- Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="assistente-ia/src/css/style.css">
   <link rel="stylesheet" href="assistente-ia/src/css/theme.css">
   <link rel="stylesheet" href="assistente-ia/src/css/responsive.css">
 </head>
+
 <body>
   <header>
     <img src="assistente-ia/src/images/icon.png" alt="">
@@ -45,18 +48,26 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Novo Chat</a></li>
-        <!-- <li><a href="/sobre">Sobre</a></li>  -->
-        <!-- fazer pagina com os githubs/linkedins dos integrantes do grupo -->
-        <li id="login"><a href="#">Login</a></li>
-        <li><button id="btn-theme" title="Dark/Light"><img src="assistente-ia/src/images/dianoite.png"
-              alt="Imagem dia e noite"></button></li>
+        <li id="new-chat">
+          <a href="index.html" title="Novo Chat">
+            <i class="fa-regular fa-message"></i> </a>
+        </li>
+        <li id="login">
+          <a href="#" title="perfil">
+            <i class="fa-regular fa-user"></i>
+          </a>
+        </li>
+        <li id="theme">
+          <button id="btn-theme" title="Dark/Light">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section class="container">
+
       <article class="home-container">
         <img src="assistente-ia/src/images/robo.png" alt="Imagem de um robô">
         <h2>Olá, sou Fourteam AI, o seu novo assistente virtual!</h2>
@@ -64,21 +75,31 @@
 
       <article class="chat-container disable">
         <div class="question"></div>
-        <div class="response"></div>
+        <div class="response-block">
+          <div class="response"></div>
+          <button class="btn-copy" type="button" title="Copiar" aria-label="Copiar texto">
+            <i class="fa-regular fa-copy"></i></button>
+        </div>
       </article>
     </section>
 
     <section class="form-container">
+      <div class="delete disable">
+        <p class="msg-delete disable">Conversa apagada com sucesso!</p>
+        <button id="btn-delete" type="button" title="Limpar conversa"><i class="fa-solid fa-trash-can"></i></button>
+      </div>
       <form id="chat-form" class="chat-form">
         <label for="question-box" class="sr-only">Digite a sua pergunta</label>
-        <textarea id="question-box" name="question-box"
-          placeholder="Digite a sua pergunta..."
-          required></textarea>
+        <textarea id="question-box" name="question-box" placeholder="Digite a sua pergunta..." required></textarea>
         <div>
           <label for="apiKey" class="sr-only">Gemini API Key</label>
           <input type="password" id="apiKey" placeholder=" 🔑 Cole sua API Key aqui">
+          <select id="ia-model">
+            <option value="gemini">Gemini 2.0</option>
+            <option value="gpt">GPT-3.5</option>
+          </select>
 
-          <button type="submit">Perguntar</button>
+          <button type="submit" title="Enviar pergunta"><i class="fa-regular fa-paper-plane"></i></button>
         </div>
       </form>
     </section>
@@ -86,8 +107,9 @@
 
   <footer>
     <p>&copy 2025 - Desenvolvido por <strong><u>Fourteam</strong></u></p>
-    </span>
   </footer>
+
+  <script src="https://kit.fontawesome.com/c04f6175a4.js" crossorigin="anonymous"></script>
   <script src="assistente-ia/src/js/style.js"></script>
   <script src="assistente-ia/src/js/script.js"></script>
 
