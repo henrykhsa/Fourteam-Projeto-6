@@ -49,5 +49,6 @@ document.getElementById("btn-export").addEventListener("click", () => {
     }
   });
 
+  console.log(chatHistory);
   doc.save("conversa-fourteam.pdf");
 });
