@@ -26,7 +26,7 @@ Desenvolver um Assistente de IA Web completo usando HTML, CSS e JavaScript puro 
 - [x] Temas - Dark/Light
 - [ ] Múltiplos provedores
 - [x] Markdown rendering - Resposta formatadas
-- [ ] Export (salvar e pdf)
+- [x] Export (salvar e pdf)
 
 ## 🧱 Estrutura do Projeto
 
