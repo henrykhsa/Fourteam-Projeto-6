@@ -195,19 +195,24 @@ document.getElementById("btn-delete").addEventListener("click", () => {
   const setOk = confirm("Tem certeza que deseja apagar toda a conversa?");
 
   if (setOk) {
-    chatHistory.length = 0; // Limpa o array sem recriar
-    renderizarHistorico(); // Atualiza a tela
+    chatHistory.length = 0;
+    renderizarHistorico();
+    textarea.value = "";
 
-    // Mensagem de sucesso
-    const msgDelete = document.querySelector(".msg-delete")
+    const msgDelete = document.querySelector(".msg-delete");
+    const btnDelete = document.getElementById("btn-delete");
     const deleteBox = document.querySelector(".delete");
 
+    // Mostra o container e a lixeira (caso esteja oculto)
+    deleteBox.classList.remove("disable");
+    btnDelete.classList.remove("disable");
+
+    // Mostra só a mensagem
     msgDelete.classList.remove("disable");
 
-    // Remove a mensagem após 2 segundos
+    // Some só a mensagem após 2s
     setTimeout(() => {
-      // Botao de apagar e mensagem voltam a ficar escondidos
-      deleteBox.classList.add("disable");
-    }, 3000);
+      msgDelete.classList.add("disable");
+    }, 2000);
   }
 });
