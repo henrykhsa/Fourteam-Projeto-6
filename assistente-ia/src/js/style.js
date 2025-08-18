@@ -13,30 +13,40 @@ document.getElementById("btn-export").addEventListener("click", () => {
   const doc = new jsPDF();
 
   let y = 20; // posição inicial no PDF
+  const margin = 10;
+  const maxWidth = 180;
+  const lineHeight = 7; // altura de cada linha de texto
+  const lineSpacing = 5; // espaçamento entre linhas
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(12);
 
   chatHistory.forEach((item) => {
-    if (item.role === "user") {
-      doc.setFont("helvetica", "bold");
-      doc.text("Você:", 10, y);
-      y += 7;
-      doc.setFont("helvetica", "normal");
-      doc.text(item.parts[0].text, 10, y);
-      y += 15;
-    } else {
-      doc.setFont("helvetica", "bold");
-      doc.text("IA:", 10, y);
-      y += 7;
-      doc.setFont("helvetica", "normal");
-      doc.text(item.parts[0].text, 10, y, { maxWidth: 180 }); // quebra linha automática
-      y += 20;
-    }
-
-    // Nova página se passar do limite
+    // Adiciona uma nova pagina se a próxima seção ultrapassar o limite
     if (y > 270) {
       doc.addPage();
       y = 20;
     }
-  });
 
+    if (item.role === "user") {
+      doc.setFont("helvetica", "bold");
+      doc.text("Você:", margin, y);
+      y += lineHeight;
+
+      doc.setFont("helvetica", "normal");
+      const userText = doc.splitTextToSize(item.parts[0].text, maxWidth);
+      doc.text(userText, margin, y);
+      y += userText.length * lineHeight + lineSpacing;
+    } else {
+      doc.setFont("helvetica", "bold");
+      doc.text("IA:", margin, y);
+      y += lineHeight;
+
+      doc.setFont("helvetica", "italic");
+      const iaText = doc.splitTextToSize(item.parts[0].text, maxWidth);
+      doc.text(iaText, margin, y);
+      y += iaText.length * lineHeight + lineSpacing;
+    }
+  });
   doc.save("conversa-fourteam.pdf");
 });
