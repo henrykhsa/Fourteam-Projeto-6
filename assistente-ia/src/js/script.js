@@ -5,6 +5,12 @@ const chatHistory = [];
 const btnPerguntar = document.querySelector("button[type='submit']");
 const textarea = document.getElementById("question-box");
 
+// Recupera a API Key salva
+const savedKey = localStorage.getItem("apiKey");
+if (savedKey) {
+  document.getElementById("apiKey").value = savedKey;
+}
+
 // Função para renderizar o histórico completo na tela
 function renderizarHistorico() {
   const chatContainer = document.querySelector(".chat-container");
@@ -38,19 +44,35 @@ function renderizarHistorico() {
 
       copyBtn.addEventListener("click", () => {
         const responseText = responseDiv.textContent;
-        navigator.clipboard.writeText(responseText).then(() => {
-          const copiedSpan = document.createElement("span");
-          copiedSpan.textContent = "Copiado!";
-          copiedSpan.classList.add("copied-message");
 
-          // Adiciona o <span> ao lado do botão
-          responseBlock.appendChild(copiedSpan);
+        navigator.clipboard
+          .writeText(responseText)
+          .then(() => {
+            const copiedSpan = document.createElement("span");
+            copiedSpan.textContent = "Copiado!";
+            copiedSpan.classList.add("copied-message");
 
-          // Remove o <span> após 2 segundos
-          setTimeout(() => {
-            copiedSpan.remove();
-          }, 1000);
-        });
+            // Adiciona o <span> ao lado do botão
+            responseBlock.appendChild(copiedSpan);
+
+            // Remove o <span> após 2 segundos
+            setTimeout(() => {
+              copiedSpan.remove();
+            }, 1000);
+          })
+          .catch((err) => {
+            console.error("Erro ao copiar:", err);
+
+            const copiedSpan = document.createElement("span");
+            copiedSpan.textContent = "Falha ao copiar!";
+            copiedSpan.classList.add("copied-message");
+
+            responseBlock.appendChild(copiedSpan);
+
+            setTimeout(() => {
+              copiedSpan.remove();
+            }, 1000);
+          });
       });
 
       responseBlock.appendChild(responseDiv);
@@ -74,8 +96,11 @@ async function enviarPergunta() {
     return;
   }
 
+  localStorage.setItem("apiKey", apiKey);
+
   homeContainer.classList.add("disable");
   document.querySelector(".chat-container").classList.remove("disable");
+  document.querySelector(".delete").classList.remove("disable");
 
   // Adiciona a pergunta do usuário ao histórico
   chatHistory.push({
@@ -99,7 +124,7 @@ async function enviarPergunta() {
 
   try {
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -163,5 +188,26 @@ textarea.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
     event.preventDefault(); // Impede a quebra de linha
     enviarPergunta();
+  }
+});
+
+document.getElementById("btn-delete").addEventListener("click", () => {
+  const setOk = confirm("Tem certeza que deseja apagar toda a conversa?");
+
+  if (setOk) {
+    chatHistory.length = 0; // Limpa o array sem recriar
+    renderizarHistorico(); // Atualiza a tela
+
+    // Mensagem de sucesso
+    const msgDelete = document.querySelector(".msg-delete")
+    const deleteBox = document.querySelector(".delete");
+
+    msgDelete.classList.remove("disable");
+
+    // Remove a mensagem após 2 segundos
+    setTimeout(() => {
+      // Botao de apagar e mensagem voltam a ficar escondidos
+      deleteBox.classList.add("disable");
+    }, 3000);
   }
 });

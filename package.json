@@ -1,13 +1,13 @@
 {
   "name": "assistente-ia",
   "version": "1.0.0",
-  "description": "",
+  "description": "Assistente de IA Web completo usando HTML, CSS e JavaScript puro",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fourteam",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {

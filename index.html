@@ -50,11 +50,10 @@
       <ul>
         <li id="new-chat">
           <a href="index.html" title="Novo Chat">
-            <i class="fa-solid fa-comment-medical"></i>
-          </a>
+            <i class="fa-regular fa-message"></i> </a>
         </li>
         <li id="login">
-          <a href="#" title="Login">
+          <a href="#" title="perfil">
             <i class="fa-regular fa-user"></i>
           </a>
         </li>
@@ -85,14 +84,22 @@
     </section>
 
     <section class="form-container">
+      <div class="delete disable">
+        <p class="msg-delete disable">Conversa apagada com sucesso!</p>
+        <button id="btn-delete" type="button" title="Limpar conversa"><i class="fa-solid fa-trash-can"></i></button>
+      </div>
       <form id="chat-form" class="chat-form">
         <label for="question-box" class="sr-only">Digite a sua pergunta</label>
         <textarea id="question-box" name="question-box" placeholder="Digite a sua pergunta..." required></textarea>
         <div>
           <label for="apiKey" class="sr-only">Gemini API Key</label>
           <input type="password" id="apiKey" placeholder=" 🔑 Cole sua API Key aqui">
+          <select id="ia-model">
+            <option value="gemini">Gemini 2.0</option>
+            <option value="gpt">GPT-3.5</option>
+          </select>
 
-          <button type="submit">Perguntar</button>
+          <button type="submit" title="Enviar pergunta"><i class="fa-regular fa-paper-plane"></i></button>
         </div>
       </form>
     </section>
