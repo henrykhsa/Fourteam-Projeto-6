@@ -50,8 +50,9 @@ assistente-ia/
 
 🎥 [Demonstração](https://www.youtube.com/watch?v=F374Uh_66IE)
 
-<img src="./assistente-ia/src/images/print2.png" alt="Print tela pc" height="300"/>
-<img src="./assistente-ia/src/images/print.png" alt="Print mobile" height="300"/>
+<img src="./assistente-ia/src/images/print2.png" alt="Print tela pc" height="320"/> <img src="./assistente-ia/src/images/print.png" alt="Print mobile" height="320"/>
+
+Deploy: [https://henrykhsa.github.io/Fourteam-Projeto-6/](https://henrykhsa.github.io/Fourteam-Projeto-6/)
 
 # 💻 Configuração e Uso
 
