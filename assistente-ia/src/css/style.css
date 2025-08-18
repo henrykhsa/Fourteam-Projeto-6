@@ -184,8 +184,9 @@ main {
 }
 
 .home-container.disable,
-.chat-container.disable, 
-.delete.disable, .msg-delete.disable {
+.chat-container.disable,
+.delete.disable,
+.msg-delete.disable {
   display: none !important;
 }
 
@@ -220,12 +221,11 @@ main {
 }
 
 #btn-export:hover {
-  scale: 1.1;  
+  scale: 1.1;
   background-color: transparent;
   border-radius: 20px;
   opacity: 80%;
 }
-
 
 .msg-delete {
   font-size: 1rem;
@@ -247,7 +247,7 @@ main {
 }
 
 #btn-delete:hover {
-  scale: 1.1;  
+  scale: 1.1;
   background-color: transparent;
   border-radius: 20px;
   opacity: 80%;
@@ -321,7 +321,6 @@ main {
   outline: none;
   border: 1px solid var(--color1);
 }
-
 
 .chat-form button {
   padding: 10px;
